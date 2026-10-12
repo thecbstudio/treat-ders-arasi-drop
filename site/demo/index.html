@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>treat — Ders Arası Drop · Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.demo{width:min(1080px,calc(100% - 40px));margin:0 auto;padding:36px 0 80px}
+.demo h1{font-size:clamp(34px,5vw,60px);margin:10px 0 14px}
+.demo .lede{max-width:none;margin-bottom:22px}
+.demo video{width:100%;border:2px solid var(--ink);border-radius:14px;box-shadow:var(--shadow);background:#000;display:block}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0 10px}
+.facts div{border:1.5px solid var(--ink);border-radius:10px;background:#fff;padding:16px}
+.facts b{display:block;font-family:"Fraunces",serif;font-size:40px;letter-spacing:-.05em;color:var(--coral);line-height:1}
+.facts span{font-size:13px}
+.links{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.links a{border:1.5px solid var(--ink);border-radius:999px;padding:11px 16px;font-weight:700;font-size:14px;color:var(--ink);text-decoration:none;background:#fff}
+.links a:first-child{background:var(--ink);color:#fff}
+.who{font:500 12px "DM Mono",monospace;letter-spacing:.06em;text-transform:uppercase;margin-top:30px}
+@media(max-width:760px){.facts{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<main class="demo">
+  <p class="eyebrow"><span class="pulse"></span> Istanbul Ignited by Slush’D · Manus AI Hackathon · 12 Oct 2026</p>
+  <h1>We didn’t build a product today. <em>We built its go-to-market.</em></h1>
+  <p class="lede">treat is our student app. It had zero cafés. In one morning, Apify found the real customers, Manus chose them and wrote to each one, fal.ai made the visuals, and we walked into the cafés ourselves.</p>
+  <video controls playsinline preload="metadata" poster="/assets/key.jpg" src="/assets/story.mp4"></video>
+  <div class="facts">
+    <div><b>184</b><span>real cafés scraped with Apify, 3,290 reviews read</span></div>
+    <div><b>29.5 min</b><span>of Manus agent time for scoring, offers, pages and content plan</span></div>
+    <div><b>3</b><span>cafés visited in person the same day</span></div>
+    <div><b>2</b><span>said yes to a pilot</span></div>
+  </div>
+  <div class="links">
+    <a href="/">Campaign site (Manus) →</a>
+    <a href="/tr/?cafe=glane-coffee">A café’s personal page →</a>
+    <a href="/tracker/">Live pipeline →</a>
+    <a href="https://github.com/thecbstudio/treat-ders-arasi-drop">Prompts, data and files →</a>
+  </div>
+  <p class="who">Çınar Özkan · Ece Azra Odabaşı</p>
+</main>
+</body>
+</html>

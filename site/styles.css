@@ -8,3 +8,5 @@
 html,body{overflow-x:hidden}
 
 .picker{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding:6px 0 14px}.picker span{font:500 12px "DM Mono",monospace;margin-right:4px}.picker a{border:1.5px solid var(--ink);border-radius:999px;padding:8px 13px;font-size:13px;font-weight:700;color:var(--ink);text-decoration:none;background:#fff}.cafe-brief{padding-top:18px}
+
+.story{padding:30px 0 80px}.story video{width:100%;border:2px solid var(--ink);border-radius:14px;box-shadow:var(--shadow);background:#000;display:block}.story .section-note a{color:var(--ink);font-weight:700}

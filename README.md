@@ -4,7 +4,8 @@
 Istanbul Ignited by Slush’D · Manus AI Hackathon · 12 October 2026
 Team: Çınar Özkan · Ece Azra Odabaşı
 
-Live site: https://treat-ders-arasi-drop.netlify.app
+**Demo (72-second video + results): https://treat-ders-arasi-drop.netlify.app/demo/**
+Campaign site: https://treat-ders-arasi-drop.netlify.app
 Pilot pipeline: https://treat-ders-arasi-drop.netlify.app/tracker/
 
 ## The problem
@@ -22,7 +23,7 @@ So we did not build a product today. We built its go-to-market.
 | Write to each of them | **Manus** | 5 personal offers, each built on a quote from that café's own reviews; 5 outreach messages; a 14-day content plan |
 | Give each café its own page | **Manus** | Landing page with one personalised view per café, plus a generic-vs-data-driven offer comparison and a pipeline tracker |
 | Make the campaign visuals | **fal.ai** | Campaign photos (FLUX 1.1 Pro Ultra) and a video ad (Kling image-to-video), used on the site, in the pitch video and on Instagram |
-| Go live | us | Instagram account opened with the first posts and a reel |
+| Go live | us | Instagram posts and a reel prepared from the Manus content plan and fal.ai visuals (see `social/`) |
 | Test it in the real world | us | Walked into 3 cafés the same day with their pages. **2 said yes.** 1 said no (already has enough customers) |
 
 Before: about one hour per café by hand. After: the whole kit in 29.5 minutes of agent time, then real conversations the same day.
