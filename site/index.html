@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="treat Ders Arası Drop: a transparent pilot for cafés around BAU South Campus, Istanbul." />
+  <meta name="theme-color" content="#ff6b4a" />
+  <title>Ders Arası Drop | treat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="treat home">
+      <span class="mark">t</span><span>treat</span>
+    </a>
+    <a class="lang" href="/tr/" id="lang-tr">TR</a> <a class="top-cta" href="https://treat-app.serverpod.space" target="_blank" rel="noreferrer">Post a drop <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <nav id="picker" class="picker section-shell"><span>Open a café page:</span><a href="/?cafe=glane-coffee">Glane Coffee</a><a href="/?cafe=siyah-cafe-kahvalti">Siyah Cafe</a><a href="/?cafe=the-co-coffee-akaretler">The Co. Coffee</a><a href="/?cafe=hygge-coffee-shop">Hygge Coffee</a><a href="/?cafe=menta-nisantasi">Menta</a></nav>
+
+  <main id="main">
+    <section id="top" class="hero section-shell">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="pulse"></span> Pilot around BAU Beşiktaş</p>
+        <h1>A <em>treat</em> between classes.<br>A story worth sharing.</h1>
+        <p class="lede">Open a small free-drink drop in your quiet hours. Students claim it with a QR code, actually visit, and share a clearly disclosed story that tags your café.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="https://treat-app.serverpod.space" target="_blank" rel="noreferrer">Post a drop <span aria-hidden="true">↗</span></a>
+          <a class="button button-quiet" href="#nasil-calisir">How it works <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="microcopy">A free pilot. No fees, no contract; the café decides what to offer.</p>
+      </div>
+
+      <div class="hero-art" aria-label="Ders Arası Drop campaign visual">
+        <div class="art-paper art-paper-back"></div>
+        <div class="art-paper art-paper-front">
+          <img class="campaign-image" src="/assets/key.jpg" alt="Ders Arası Drop campaign visual" onerror="this.style.display='none'; document.querySelector('.fallback-art').classList.remove('hidden');">
+          <div class="fallback-art hidden" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="cup"><span></span></div>
+            <div class="phone"><i></i><b></b><em></em></div>
+            <div class="notebook">BETWEEN<br>CLASSES</div>
+          </div>
+          <span class="art-tag tag-top">#dersarasidrop</span>
+          <span class="art-tag tag-bottom">pilot / BAU</span>
+        </div>
+        <div class="scribble scribble-one" aria-hidden="true">✦</div>
+        <div class="scribble scribble-two" aria-hidden="true">→</div>
+      </div>
+    </section>
+
+    <section id="cafe-brief" class="cafe-brief section-shell hidden" aria-live="polite">
+      <div class="cafe-label-row"><p class="eyebrow" id="cafe-label">Pilot proposal for your café</p><a href="/tracker/">Pipeline tracker →</a></div>
+      <h2 id="cafe-headline">A small, measurable drop for your café.</h2>
+      <div class="cafe-brief-grid">
+        <div class="cafe-offer"><p class="micro-label">Proposed pilot</p><p id="cafe-offer">—</p><p class="brief-caveat">A proposal only; owner approval, real opening hours and product availability must be confirmed.</p></div>
+        <figure class="cafe-quote"><blockquote id="cafe-quote">—</blockquote><figcaption id="cafe-source">—</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="signal-band" aria-label="Campaign summary">
+      <p><strong>184</strong> cafés analysed <span>✳</span> <strong>1.5 km</strong> around BAU South Campus <span>✳</span> <strong>pilot</strong>, not a promise of results</p>
+    </section>
+
+    
+    <section class="built section-shell" id="built">
+      <div class="section-intro compact"><p class="eyebrow">How this was built · 12 Oct 2026, in one hackathon morning</p><h2>Three students, no marketing team. <em>Manus ran the launch.</em></h2></div>
+      <div class="built-grid">
+        <article><span>01 · Apify</span><strong>184</strong><p>cafés within 1.5 km of campus scraped from Google Maps, with 3,290 reviews.</p></article>
+        <article><span>02 · Manus</span><strong>13 min</strong><p>to read the reviews, score every café for fit and pick the top 5, with reasons and sources.</p></article>
+        <article><span>03 · Manus</span><strong>5</strong><p>personal offers, each built on a quote from that café’s own reviews, plus a page and QR per café and a 14-day content plan.</p></article>
+        <article><span>04 · fal.ai</span><strong>1</strong><p>campaign key visual (FLUX 1.1 Pro Ultra). Then we walked to the cafés.</p></article>
+      </div>
+      <p class="section-note">Before: about one hour per café by hand. After: the whole kit in 29.5 minutes of agent time. Sending the messages and talking to owners stayed human. <a href="/tracker/">See the live pipeline →</a></p>
+    </section>
+
+    <section id="proof" class="proof-layer section-shell">
+      <div class="section-intro compact"><p class="eyebrow">Proof layer / Hygge Coffee Shop</p><h2>A generic offer vs. a <em>data-driven offer</em>.</h2></div>
+      <div class="offer-compare">
+        <article class="offer-card control"><p class="micro-label">A. Control — no data</p><h3>Generic offer</h3><p>“Hi, would you like to give away 5 free coffees on weekdays to bring students to your café?”</p><p class="offer-foot">Could be sent to any café; uses no review, price or busyness data.</p></article>
+        <article class="offer-card personal"><p class="micro-label">B. Personalised for Hygge</p><h3>Data-driven offer</h3><p>“Let’s put your calm back garden at the centre of the Ders Arası Drop pilot: <strong>5 free filter coffees, weekdays 14:00–16:00 as a starting point.</strong> The item and the time are yours to decide; this is a small pilot, not a paid partnership.”</p><p class="offer-foot">Written from Hygge’s own reviews and busyness signals; claims no result or partnership.</p></article>
+      </div>
+      <div class="decision-table-wrap"><table class="decision-table"><thead><tr><th>Decision</th><th>Evidence</th><th>Verification</th></tr></thead><tbody>
+        <tr><td><strong>Drop item</strong><br>5 free filter coffees</td><td>No review confirms a specific drink preference at Hygge. This is an operational suggestion for a small pilot; the assumption that a free offer lowers the price barrier comes from the price-sensitivity signal in the review “Expensive, and the vanilla latte was bad in my opinion”.</td><td><span class="tag caution">Item not verified</span></td></tr>
+        <tr><td><strong>Time</strong><br>Weekdays 14:00–16:00</td><td><code>quiet_hours_signal</code>: low average busyness during weekday working hours. The data does not confirm opening hours; this window is only a test suggestion.</td><td><span class="tag caution">Time needs confirming</span></td></tr>
+        <tr><td><strong>Tone</strong><br>Calm, garden-led</td><td>Google Maps review: “The desserts are great, especially the brownies; the back garden is lovely, very calm and peaceful.”</td><td><span class="tag verified">Found in review</span></td></tr>
+        <tr><td><strong>Price sensitivity</strong><br>Free entry point</td><td><code>price_evidence_quotes</code>: “Expensive, and the vanilla latte was bad in my opinion 🤷🏻‍♀️”</td><td><span class="tag verified">Single-review signal</span></td></tr>
+      </tbody></table></div>
+      <p class="section-note">Source: Apify / Google Maps snapshot. Single reviews are not generalisations; “found” only means the quote exists in the snapshot. Reviews translated from Turkish.</p>
+    </section>
+
+    <section id="nasil-calisir" class="steps section-shell">
+      <div class="section-intro">
+        <p class="eyebrow">Three simple steps</p>
+        <h2>A good drop starts with a real <em>visit</em>.</h2>
+      </div>
+      <div class="steps-grid">
+        <article class="step-card coral">
+          <span class="step-number">01</span>
+          <div class="step-icon">↗</div>
+          <h3>Post the drop</h3>
+          <p>You choose the drink and the quantity for your quiet hours. The first suggestion is a small, measurable pilot.</p>
+        </article>
+        <article class="step-card yellow">
+          <span class="step-number">02</span>
+          <div class="step-icon">⌁</div>
+          <h3>Students claim with a QR code</h3>
+          <p>A student claims the drop in treat and redeems it at your counter by showing the QR code.</p>
+        </article>
+        <article class="step-card green">
+          <span class="step-number">03</span>
+          <div class="step-icon">✦</div>
+          <h3>They leave a mark in a story</h3>
+          <p>The student tags the café and clearly discloses that it was a gift through treat.</p>
+        </article>
+      </div>
+      <p class="section-note">The example of 5 drinks / weekdays 14:00–16:00 is a pilot proposal; nothing is published without the owner’s approval.</p>
+    </section>
+
+    <section class="why section-shell">
+      <div class="why-visual">
+        <p class="eyebrow">Why now?</p>
+        <div class="big-number">184<span>×</span></div>
+        <p>Open café, coffee and tea places analysed within 1.5 km of BAU South Campus.</p>
+        <div class="data-line"></div>
+        <p class="data-caption">Research snapshot: 12 October 2026</p>
+      </div>
+      <div class="why-content">
+        <h2>Start from <em>local signals</em>, not a hunch.</h2>
+        <div class="metric-list">
+          <div class="metric"><strong>3,290</strong><span>reviews collected</span></div>
+          <div class="metric"><strong>154</strong><span>places with 20 reviews read</span></div>
+          <div class="metric"><strong>53</strong><span>Instagram profiles found</span></div>
+        </div>
+        <p class="fineprint">Finding an Instagram URL does not confirm the account is active. No partnership, paid campaign or performance result is claimed.</p>
+      </div>
+    </section>
+
+    <section class="evidence section-shell">
+      <div class="section-intro compact">
+        <p class="eyebrow">Signals from reviews</p>
+        <h2>What students talk about: <em>price, quiet, studying.</em></h2>
+      </div>
+      <div class="quotes-grid">
+        <figure class="quote-card peach">
+          <blockquote>“The back garden is lovely, very calm and peaceful.”</blockquote>
+          <figcaption>— Hygge Coffee Shop, Google Maps review</figcaption>
+        </figure>
+        <figure class="quote-card lilac">
+          <blockquote>“The music isn’t intrusive; it’s calm and the products are very good.”</blockquote>
+          <figcaption>— Menta Nişantaşı, Google Maps review</figcaption>
+        </figure>
+        <figure class="quote-card sky">
+          <blockquote>“There are charging points too; good for studying.”</blockquote>
+          <figcaption>— Dali Coffee &amp; More, Google Maps review</figcaption>
+        </figure>
+      </div>
+      <p class="section-note">Quotes are single reviews from the Google Maps snapshot collected with Apify, translated from Turkish; they should not be read as the behaviour of all students or visits.</p>
+    </section>
+
+    <section class="pilot section-shell">
+      <div class="pilot-card">
+        <div>
+          <p class="eyebrow">For café owners</p>
+          <h2>Keep your first drop small. <em>Grow as you learn.</em></h2>
+          <p>You pick the drink, the quantity and the time window. treat connects claim → QR redemption → disclosed story in one pilot flow.</p>
+        </div>
+        <a class="button button-light" href="https://treat-app.serverpod.space" target="_blank" rel="noreferrer">Post a drop <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <div><a class="wordmark" href="#top"><span class="mark">t</span><span>treat</span></a><p>Ders Arası Drop / BAU Beşiktaş pilot</p></div>
+    <div class="sources"><p><strong>Sources</strong></p><p>BAU South Campus address: <a href="https://bau.edu.tr/iletisim-ulasim" target="_blank" rel="noreferrer">BAU</a>. Café and review snapshot: Apify Google Maps Scraper, 12 October 2026. Research, copy and site produced with Manus. <a href="https://apify.com/compass/crawler-google-places" target="_blank" rel="noreferrer">Actor</a>.</p></div>
+  </footer>
+  <script>
+    const cafeBriefs = {
+      'hygge-coffee-shop': {name:'Hygge Coffee Shop', headline:'For Hygge: a small drop in the calm back garden.', offer:'5 free filter coffees · weekdays 14:00–16:00 proposed', quote:'“The desserts are great, especially the brownies; the back garden is lovely, very calm and peaceful.”', source:'Google Maps review · Hygge Coffee Shop · quiet-hours signal: low average busyness on weekday working hours', note:'The time and the filter coffee are not final without the owner’s approval.'},
+      'menta-nisantasi': {name:'Menta Nişantaşı', headline:'For Menta: a short break with unobtrusive music.', offer:'5 free iced coffees · weekdays 14:00–16:00 proposed', quote:'“The music isn’t intrusive, it’s calm and the products are very good.”', source:'Google Maps review · Menta Nişantaşı · quiet-hours signal: low average busyness on weekday working hours', note:'The item and time are a pilot proposal only; the owner must confirm.'},
+      'siyah-cafe-kahvalti': {name:'Siyah Cafe Kahvaltı', headline:'For Siyah: a small between-classes break in a friendly place.', offer:'5 free filter coffees · weekdays 14:00–16:00 proposed', quote:'“The warmth and comfort of the place and the friendliness of the staff are always great.”', source:'Google Maps review · Siyah Cafe Kahvaltı · quiet-hours signal: low average busyness on weekday working hours', note:'The item and time are a pilot proposal only; the owner must confirm.'},
+      'the-co-coffee-akaretler': {name:'THE CO. COFFEE AKARETLER', headline:'For THE CO.: a drop trial in a spacious, low-noise space.', offer:'5 free filter coffees · weekdays 14:00–16:00 proposed', quote:'“A nice, spacious place, not too noisy.”', source:'Google Maps review · THE CO. COFFEE AKARETLER · quiet-hours signal: medium busyness on weekday working hours', note:'Because of the medium-busyness signal, the time especially needs confirming with the owner.'},
+      'glane-coffee': {name:'Glane Coffee', headline:'For Glane: a small pilot built on its peaceful atmosphere.', offer:'5 free filter coffees · weekdays 14:00–16:00 as a starting point', quote:'“The atmosphere is so peaceful and the staff so warm.”', source:'Google Maps review · Glane Coffee · no Google Maps busyness histogram', note:'Quiet hours not verified; the time window is only a starting suggestion.'}
+    };
+    const cafe = new URLSearchParams(window.location.search).get('cafe');
+    if (cafe && cafeBriefs[cafe]) {
+      const d = cafeBriefs[cafe];
+      document.title = d.name + ' · Ders Arası Drop | treat';
+      document.getElementById('cafe-brief').classList.remove('hidden');
+      document.getElementById('cafe-label').textContent = 'Pilot proposal for ' + d.name;
+      document.getElementById('cafe-headline').textContent = d.headline;
+      document.getElementById('cafe-offer').textContent = d.offer;
+      document.getElementById('cafe-quote').textContent = d.quote;
+      document.getElementById('cafe-source').textContent = d.source;
+      document.querySelector('.brief-caveat').textContent = d.note;
+      const cb=document.getElementById('cafe-brief'); document.getElementById('main').prepend(cb);
+    }
+  const q=location.search; if(q) document.getElementById('lang-tr').href='/tr/'+q;
+  </script>
+</body>
+</html>

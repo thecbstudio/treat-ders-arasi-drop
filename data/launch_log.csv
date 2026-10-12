@@ -1,0 +1,9 @@
+step,status,start_utc,end_utc,elapsed_minutes,credits_spent,credit_source_or_note
+1_existing_research_reused,complete,2026-10-12T07:20:26Z,2026-10-12T07:23:26Z,3.0,not reported,Existing Apify/Google Maps snapshot reused; no new scrape run
+2_outreach_and_calendar_copy,complete,2026-10-12T07:23:26Z,2026-10-12T07:24:13Z,0.8,not reported,Local deterministic copy/calendar generation; no credit meter exposed
+3_fal_ai_auth_and_model_access,skipped_after_blocker,2026-10-12T07:22:55Z,2026-10-12T07:42:29Z,19.6,0 fal inference credits,No fal.ai model call executed; user elected to keep CSS fallback
+4_landing_page,complete,2026-10-12T07:25:00Z,2026-10-12T07:39:31Z,14.5,not reported,Static page checkpoint bb839c25a94beac34c953a9b6cd84c25817bd576
+5_proof_personalization_tracker,complete,2026-10-12T07:45:11Z,2026-10-12T07:48:46Z,3.6,not reported,Proof layer, five query-driven briefs, browser-local tracker and QA added in checkpoint e63bfe1e831b00341fd406e7124d4142464cd409
+6_publish_confirmation_and_deployment,complete,2026-10-12T07:48:46Z,2026-10-12T07:49:16Z,0.5,not reported,User allowed one publication; published at https://treatdrop-j8xtuokw.manus.space
+7_qr_code_generation,complete,2026-10-12T07:49:15Z,2026-10-12T07:49:55Z,0.7,not reported,Five deterministic QR PNGs generated from the final published URLs
+workflow_elapsed_wall_clock,complete,2026-10-12T07:20:26Z,2026-10-12T07:49:55Z,29.5,not reported,Elapsed wall-clock duration; individual step times overlap because independent work continued while fal.ai authorization was attempted

@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=1920, height=1080">
+<link rel="stylesheet" href="fonts.css">
+<script src="assets/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#21312d;--paper:#f9f6ee;--coral:#ff6b4a;--yel:#ffe55f;--mint:#ccefd1;--lav:#e8dfff}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--paper)}
+#root{position:relative;width:1920px;height:1080px;overflow:hidden;background:var(--paper);font-family:"DM Sans","Segoe UI",sans-serif;color:var(--ink)}
+.sc{position:absolute;inset:0;overflow:hidden;visibility:hidden}
+.ink{background:var(--ink);color:#fff}.lav{background:var(--lav)}.yl{background:var(--yel)}
+.a{position:absolute}
+.ey{font:500 26px "DM Mono",monospace;letter-spacing:.1em;text-transform:uppercase}
+.h{font-family:"Fraunces",Georgia,serif;font-weight:700;letter-spacing:-.045em;line-height:1}
+.h em{color:var(--coral);font-style:italic}
+.chip{display:inline-block;border:2.5px solid var(--ink);border-radius:999px;padding:12px 26px;font-weight:800;font-size:32px;background:#fff;color:var(--ink);box-shadow:6px 6px 0 var(--ink)}
+.ink .chip{border-color:#fff;box-shadow:6px 6px 0 var(--coral)}
+.blob{position:absolute;border-radius:50%}
+.full{position:absolute;left:0;top:0;width:1920px;height:1080px;object-fit:cover}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,28,26,.86) 0,rgba(20,28,26,.55) 45%,rgba(20,28,26,0) 75%)}
+.shade.b{background:linear-gradient(0deg,rgba(20,28,26,.9) 0,rgba(20,28,26,.2) 45%,rgba(20,28,26,0) 60%)}
+.ai{position:absolute;right:48px;bottom:44px;font:500 22px "DM Mono",monospace;letter-spacing:.06em;background:rgba(255,255,255,.92);color:var(--ink);padding:10px 18px;border-radius:999px}
+.ai b{color:var(--coral)}
+.phone{position:absolute;border:11px solid var(--ink);border-radius:52px;overflow:hidden;background:#fff;box-shadow:14px 14px 0 var(--ink)}
+.phone video,.phone img{position:absolute;left:0;top:0;width:100%}
+.st{position:absolute;width:540px;text-align:center}
+.st i{display:inline-grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--coral);color:#fff;font:700 34px "Fraunces",serif;font-style:normal;margin-bottom:12px}
+.st b{display:block;font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1.12}
+.st span{display:block;font-size:26px;font-weight:600;opacity:.7;margin-top:6px}
+.win{position:absolute;border:3px solid #fff;border-radius:20px;overflow:hidden;background:#fff;box-shadow:16px 16px 0 var(--coral)}
+.win .bar{height:44px;background:#101816;display:flex;align-items:center;gap:9px;padding:0 18px}
+.win .bar i{width:13px;height:13px;border-radius:50%;background:var(--coral)}.win .bar i:nth-child(2){background:var(--yel)}.win .bar i:nth-child(3){background:#58a56b}
+.win .bar span{color:#fff;opacity:.7;font:500 17px "DM Mono",monospace;margin-left:14px}
+.win video{display:block;width:100%}
+.num{font-family:"Fraunces",serif;font-weight:700;font-size:140px;letter-spacing:-.06em;line-height:.9;color:var(--coral)}
+.lab{font-size:32px;font-weight:600;opacity:.9;margin-top:4px}
+.row{position:absolute;left:140px;width:1640px;height:112px}
+.row .rk{position:absolute;left:0;top:18px;width:76px;height:76px;border-radius:50%;background:var(--ink);color:#fff;font:700 40px "Fraunces",serif;display:grid;place-items:center}
+.row .nm{position:absolute;left:104px;top:8px;font-weight:800;font-size:44px;letter-spacing:-.02em;white-space:nowrap}
+.row .mt{position:absolute;left:106px;top:66px;font:500 23px "DM Mono",monospace;opacity:.7}
+.row .tr{position:absolute;left:760px;top:36px;width:700px;height:40px;border:2.5px solid var(--ink);border-radius:999px;overflow:hidden;background:#fff}
+.row .fl{position:absolute;left:0;top:0;bottom:0;background:var(--coral);transform-origin:0 50%}
+.row .sv{position:absolute;left:1500px;top:10px;font:700 84px "Fraunces",serif;letter-spacing:-.05em}
+.card{position:absolute;border:3px solid var(--ink);border-radius:22px;padding:38px 42px}
+.card .cl{font:500 23px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;margin-bottom:22px}
+.card p{font-size:40px;line-height:1.32;font-weight:600}
+.card mark{background:linear-gradient(var(--yel),var(--yel)) no-repeat 0 85%/0% 46%;color:inherit;padding:0 2px}
+.quote{position:absolute;border:3px solid var(--ink);border-radius:18px;background:#fff;padding:22px 32px;font:700 36px "Fraunces",serif;letter-spacing:-.03em;box-shadow:8px 8px 0 var(--ink);white-space:nowrap}
+.quote small{display:block;font:500 21px "DM Mono",monospace;letter-spacing:0;opacity:.7;margin-top:8px}
+.pol{position:absolute;border:3px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:12px 12px 0 var(--ink);background:#000}
+.pol img,.pol video{display:block;width:100%;height:100%;object-fit:cover}
+table.tk{position:absolute;left:140px;top:330px;width:1640px;border-collapse:separate;border-spacing:0;border:3px solid var(--ink);border-radius:18px;overflow:hidden;background:#fff}
+.tk th{background:var(--ink);color:#fff;font:500 21px "DM Mono",monospace;letter-spacing:.06em;text-transform:uppercase;padding:20px 8px}
+.tk th:first-child,.tk td:first-child{text-align:left;padding-left:34px;width:520px}
+.tk td{border-top:2px solid rgba(33,49,45,.15);height:104px;text-align:center;font-weight:800;font-size:36px}
+.tk td:first-child{background:#fffaf0}
+.bx{display:inline-block;width:52px;height:52px;border:3px solid var(--ink);border-radius:12px;position:relative;vertical-align:middle}
+.bx b{position:absolute;inset:-3px;border-radius:12px;background:var(--mint);border:3px solid var(--ink);display:grid;place-items:center;font:800 36px "DM Sans";opacity:0}
+#wipe{position:absolute;left:0;top:0;width:1920px;height:1080px;background:var(--coral);z-index:50}
+.foot{position:absolute;left:140px;bottom:64px;font:500 24px "DM Mono",monospace;letter-spacing:.04em;opacity:.8}
+</style></head><body>
+<div id="root" data-composition-id="main" data-start="0" data-duration="64" data-width="1920" data-height="1080" data-fps="30">
+
+<!-- S1 hook -->
+<div class="sc ink" id="s1">
+  <img class="full" id="s1i" src="assets/g2.jpg">
+  <div class="shade b"></div>
+  <div class="a h" id="s1a" style="left:110px;top:690px;font-size:118px;color:#fff">Students are broke.</div>
+  <div class="a h" id="s1c" style="left:110px;top:830px;font-size:118px;color:#fff">Cafés are <em>empty at 3 pm.</em></div>
+  <div class="ai" id="s1t" style="bottom:auto;top:44px">image generated with <b>fal.ai</b></div>
+</div>
+
+<!-- S2 what is treat -->
+<div class="sc" id="s2">
+  <div class="blob" id="s2b" style="width:1300px;height:1300px;left:310px;top:330px;background:var(--yel)"></div>
+  <div class="a h" id="s2h" style="left:0;top:56px;width:1920px;text-align:center;font-size:112px"><em>treat</em> connects them.</div>
+  <div class="phone" id="p1" style="left:250px;top:230px;width:300px;height:620px"><video class="clip" src="assets/a1.mp4" data-start="5" data-duration="8.5" data-track-index="1" muted playsinline></video></div>
+  <div class="phone" id="p2" style="left:810px;top:230px;width:300px;height:620px"><video class="clip" src="assets/a2.mp4" data-start="5" data-duration="8.5" data-track-index="2" muted playsinline></video></div>
+  <div class="phone" id="p3" style="left:1370px;top:230px;width:300px;height:620px"><video class="clip" src="assets/a3.mp4" data-start="5" data-duration="8.5" data-track-index="3" muted playsinline></video></div>
+  <div class="st" id="t1" style="left:130px;top:880px"><b>A café posts a free drop</b><span>to fill its quiet hours</span></div>
+  <div class="st" id="t2" style="left:690px;top:880px"><b>A student claims it</b><span>and shows a QR at the counter</span></div>
+  <div class="st" id="t3" style="left:1250px;top:880px"><b>They post a tagged story</b><span>honest, local marketing</span></div>
+</div>
+
+<!-- S3 problem -->
+<div class="sc" id="s3">
+  <div class="blob" id="s3b" style="width:760px;height:760px;right:-160px;top:-240px;background:var(--coral)"></div>
+  <div class="a ey" id="s3e" style="left:140px;top:210px">Istanbul Ignited by Slush’D · Manus track</div>
+  <div class="a h" id="s3a" style="left:134px;top:310px;font-size:150px">The app was ready.</div>
+  <div class="a h" id="s3c" style="left:134px;top:480px;font-size:150px">It had <em>zero cafés.</em></div>
+  <div class="a" id="s3d" style="left:140px;top:710px;font-size:46px;font-weight:600">Three students. No marketing team. No budget.</div>
+</div>
+
+<!-- S4 manus -->
+<div class="sc ink" id="s4">
+  <div class="a h" id="s4h" style="left:114px;top:70px;font-size:76px">So we gave the job to <em>an AI agent.</em></div>
+  <div class="a" id="s4k" style="left:120px;top:190px"><span class="chip">Manus</span> &nbsp;<span class="chip">Apify</span></div>
+  <div class="a ey" id="s4m" style="left:122px;top:268px;width:660px;font-size:19px;line-height:1.35;color:var(--yel)">Apify Google Maps scraper →<br>places · ratings · reviews · Instagram · websites</div>
+  <div class="a" id="s4n1" style="left:120px;top:330px"><div class="num" id="n1">0</div><div class="lab">cafés within 1.5 km of campus</div></div>
+  <div class="a" id="s4n2" style="left:120px;top:550px"><div class="num" id="n2">0</div><div class="lab">Google reviews read</div></div>
+  <div class="a" id="s4n3" style="left:120px;top:770px"><div class="num"><span id="n3">0</span><span style="font-size:66px;letter-spacing:-.02em"> min</span></div><div class="lab">to score every one of them</div></div>
+  <div class="win" id="s4w" style="left:820px;top:230px;width:980px">
+    <div class="bar"><i></i><i></i><i></i><span>manus.im · agent running</span></div>
+    <video class="clip" src="assets/manus.mp4" data-start="17.5" data-duration="6.5" data-track-index="4" muted playsinline></video>
+  </div>
+</div>
+
+<!-- S5 top 5 -->
+<div class="sc" id="s5">
+  <div class="a h" id="s5h" style="left:134px;top:90px;font-size:104px">184 cafés in. <em>Top 5 out.</em></div>
+  <div class="a ey" id="s5e" style="left:140px;top:226px;font-size:23px">Scored on · independent · review volume · Instagram · “quiet / good for studying” in reviews</div>
+  <div id="rows"></div>
+  <div class="a ey" id="s5o" style="left:140px;top:988px;font-size:24px"><b style="color:var(--coral)">Outreach list ready</b> · 53 Instagram profiles · 73 websites · for DM and e-mail</div>
+</div>
+
+<!-- S6 offers -->
+<div class="sc lav" id="s6">
+  <div class="a h" id="s6h" style="left:134px;top:90px;font-size:104px">Same café. <em>Two offers.</em></div>
+  <div class="card" id="s6a" style="left:140px;top:290px;width:740px;height:400px;background:#f1eee6">
+    <div class="cl">A · Generic, no data</div>
+    <p style="opacity:.75">“Hi, would you like to give away 5 free coffees to bring students in?”</p>
+    <div class="a" id="s6x" style="left:30px;top:206px;width:680px;height:6px;background:var(--coral);transform-origin:0 50%"></div>
+  </div>
+  <div class="card" id="s6b" style="left:980px;top:290px;width:800px;height:400px;background:var(--mint);box-shadow:12px 12px 0 var(--ink)">
+    <div class="cl">B · Written by Manus from Hygge’s own reviews</div>
+    <p>“Let’s put your <mark>calm back garden</mark> at the centre: <mark>5 filter coffees</mark>, <mark>weekdays 14–16</mark>, your quiet hours.”</p>
+  </div>
+  <div class="quote" id="s6q" style="left:140px;top:780px">“The back garden is lovely, very calm and peaceful.”<small>Google review · Hygge Coffee Shop · 4.8★ / 589 reviews</small></div>
+  <div class="a h" id="s6ar" style="left:1150px;top:770px;font-size:120px;color:var(--coral)">↗</div>
+  <div class="a" id="s6t" style="left:1300px;top:800px;font-size:38px;font-weight:800;width:480px;line-height:1.2">Every choice traced to a real review.</div>
+</div>
+
+<!-- S7 fal visuals -->
+<div class="sc ink" id="s7">
+  <video class="clip full" id="s7v" src="assets/v1.mp4" data-start="36" data-duration="5" data-track-index="5" muted playsinline></video>
+  <div class="shade b" id="s7s"></div>
+  <div class="a h" id="s7h" style="left:110px;top:760px;font-size:120px;color:#fff">Campaign visuals. <em>Zero photoshoot.</em></div>
+  <div class="pol" id="g1" style="left:120px;top:150px;width:560px;height:400px;transform:rotate(-4deg)"><img src="assets/g2.jpg"></div>
+  <div class="pol" id="g2" style="left:690px;top:110px;width:560px;height:400px;transform:rotate(2deg)"><img src="assets/g3.jpg"></div>
+  <div class="pol" id="g3" style="left:1250px;top:160px;width:560px;height:400px;transform:rotate(5deg)"><img src="assets/g1.jpg"></div>
+  <div class="ai" id="s7t">photos + video generated with <b>fal.ai</b> · FLUX 1.1 Pro Ultra · Kling</div>
+</div>
+
+<!-- S8 pages -->
+<div class="sc" id="s8">
+  <div class="blob" id="s8b" style="width:900px;height:900px;left:520px;top:160px;background:var(--yel)"></div>
+  <div class="phone" id="s8p" style="left:170px;top:90px;width:412px;height:880px"><img id="s8i" src="assets/page.jpg"></div>
+  <div class="a h" id="s8h" style="left:700px;top:170px;font-size:112px;width:640px">A page for <em>every café.</em></div>
+  <div class="a" id="s8c1" style="left:704px;top:470px"><span class="chip">5 personal offer pages</span></div>
+  <div class="a" id="s8c2" style="left:704px;top:570px"><span class="chip">5 outreach messages</span></div>
+  <div class="a" id="s8c3" style="left:704px;top:670px"><span class="chip">14-day content plan</span></div>
+  <div class="pol" id="s8v" style="left:1330px;top:230px;width:480px;height:600px;transform:rotate(-3deg)"><img src="assets/g3.jpg"></div>
+</div>
+
+<!-- S9 field -->
+<div class="sc" id="s9">
+  <div class="blob" id="s9b" style="width:1100px;height:1100px;left:-380px;top:420px;background:var(--mint)"></div>
+  <div class="a h" id="s9h" style="left:134px;top:70px;font-size:104px">Then we <em>walked in.</em></div>
+  <div class="a ey" id="s9e" style="left:140px;top:200px;font-size:23px">Same day · with each café’s own page on our phone</div>
+  <div class="pol" id="k1" style="left:150px;top:290px;width:330px;height:580px;transform:rotate(-3deg)"><video class="clip" src="assets/k1.mp4" data-start="48" data-duration="6.4" data-track-index="6" muted playsinline></video></div>
+  <div class="pol" id="k2" style="left:540px;top:270px;width:400px;height:520px;transform:rotate(2deg)"><img src="assets/siyah.jpg"></div>
+  <div class="pol" id="k3" style="left:1000px;top:300px;width:330px;height:580px;transform:rotate(-2deg)"><video class="clip" src="assets/k2.mp4" data-start="48" data-duration="6.4" data-track-index="7" muted playsinline></video></div>
+  <div class="pol" id="k4" style="left:1390px;top:280px;width:420px;height:320px;transform:rotate(4deg)"><img src="assets/glane.jpg"></div>
+  <div class="a h" id="s9s" style="left:1370px;top:660px;font-size:150px;color:var(--coral);line-height:.9">2 said<br>yes.</div>
+  <div class="a" id="s9t" style="left:1376px;top:960px;font-size:34px;font-weight:800">3 cafés visited · day one</div>
+</div>
+
+<!-- S10 tracker -->
+<div class="sc" id="s10">
+  <div class="a h" id="s10h" style="left:134px;top:90px;font-size:104px">Then we <em>walked in.</em></div>
+  <div class="a ey" id="s10e" style="left:140px;top:226px;font-size:23px">Live pipeline · only what really happened gets ticked</div>
+  <table class="tk" id="tk"></table>
+</div>
+
+<!-- S11 close -->
+<div class="sc ink" id="s11">
+  <div class="blob" id="s11b" style="width:700px;height:700px;right:-200px;top:-260px;background:var(--coral)"></div>
+  <div class="a ey" id="s11e1" style="left:140px;top:170px;opacity:.6">Before · by hand</div>
+  <div class="a h" id="s11a" style="left:134px;top:220px;font-size:110px;opacity:.55">1 café per hour</div>
+  <div class="a" id="s11x" style="left:134px;top:282px;width:800px;height:8px;background:var(--coral);transform-origin:0 50%"></div>
+  <div class="a ey" id="s11e2" style="left:140px;top:420px;color:var(--yel)">After · with Manus</div>
+  <div class="a h" id="s11c" style="left:134px;top:470px;font-size:170px;color:var(--coral)"><span id="n4">0</span> offers in <span id="n5">0</span> min</div>
+  <div class="a" id="s11d" style="left:140px;top:720px;font-size:50px;font-weight:800">Day one: 2 cafés said yes. Next campus: one prompt.</div>
+  <div class="foot" id="s11f" style="color:#fff">treat × Manus · Apify · fal.ai &nbsp;—&nbsp; treat-ders-arasi-drop.netlify.app</div>
+</div>
+
+<div id="wipe"></div>
+</div>
+<script>(function(){
+var C=[["Hygge Coffee Shop",96,"4.8★ · 589 reviews · 0.71 km"],["Menta Nişantaşı",94,"4.5★ · 105 reviews · 1.38 km"],["Siyah Cafe Kahvaltı",93,"4.5★ · 671 reviews · 0.61 km"],["The Co. Coffee Akaretler",93,"4.6★ · 395 reviews · 0.67 km"],["Glane Coffee",92,"4.7★ · 172 reviews · 0.56 km"]];
+var R=document.getElementById("rows"),h="";
+C.forEach(function(c,i){h+='<div class="row" id="r'+i+'" style="top:'+(300+i*128)+'px"><div class="rk">'+(i+1)+'</div><div class="nm">'+c[0]+'</div><div class="mt">'+c[2]+'</div><div class="tr"><div class="fl" id="f'+i+'" style="width:'+c[1]+'%"></div></div><div class="sv" id="v'+i+'">0</div></div>';});
+R.innerHTML=h;
+var ST=["Found","Scored","Offer ready","Visited","Replied","Agreed","Drop live"],t='<tr><th>Café</th>'+ST.map(function(s){return "<th>"+s+"</th>"}).join("")+"</tr>";
+C.forEach(function(c,i){t+="<tr><td>"+c[0]+"</td>"+ST.map(function(s,j){return '<td><span class="bx"><b id="b'+i+"_"+j+'">✓</b></span></td>'}).join("")+"</tr>";});
+document.getElementById("tk").innerHTML=t;
+/* her kafe için gerçekleşen aşama sayısı — saha sonucu gelince güncellenir */
+var DONE=[3,3,6,3,6]; /* Siyah ve Glane: ziyaret, yanit, evet */
+gsap.set("#wipe",{xPercent:-101});
+var tl=gsap.timeline({paused:true});
+function show(id,a,b){tl.set(id,{autoAlpha:1},a);tl.set(id,{autoAlpha:0},b);}
+function wipe(t){tl.fromTo("#wipe",{xPercent:-101},{xPercent:0,duration:.28,ease:"power3.in",immediateRender:false},t-.28);tl.to("#wipe",{xPercent:101,duration:.32,ease:"power3.out"},t);}
+function inn(id,t,o){o=o||{};tl.from(id,Object.assign({y:60,autoAlpha:0,duration:.55,ease:"power3.out"},o),t);}
+function cnt(id,to,t,d,dec){var o={v:0},e=document.querySelector(id);tl.to(o,{v:to,duration:d,ease:"power2.out",onUpdate:function(){e.textContent=dec?o.v.toFixed(1):Math.round(o.v).toLocaleString("en-US")}},t);}
+var T=[0,5,13.5,17.5,24,29.5,36,43.5,48,54.5,58.5,64];
+for(var i=1;i<=11;i++){show("#s"+i,T[i-1],T[i]);if(i>1)wipe(T[i-1]);}
+var a;
+/* S1 */
+tl.fromTo("#s1i",{scale:1.12},{scale:1,duration:5.2,ease:"none"},0);
+tl.from("#s1a",{y:120,autoAlpha:0,duration:.6,ease:"power4.out"},.4);
+tl.from("#s1c",{y:120,autoAlpha:0,duration:.6,ease:"power4.out"},1.7);
+tl.from("#s1c em",{scale:1.3,duration:.5,ease:"back.out(2)",transformOrigin:"0 50%"},2.0);inn("#s1t",2.6,{y:0});
+/* S2 */
+a=T[1];tl.from("#s2b",{scale:0,duration:.9,ease:"back.out(1.2)"},a+.2);inn("#s2h",a+.3);
+[1,2,3].forEach(function(k){var t0=a+.8+(k-1)*2.2;tl.from("#p"+k,{y:900,rotation:k==2?0:(k==1?-8:8),duration:.8,ease:"power3.out"},t0);inn("#t"+k,t0+.45);tl.to("#p"+k,{y:-14,duration:2.6,ease:"sine.inOut",yoyo:true,repeat:1},t0+.9);});
+/* S3 */
+a=T[2];tl.from("#s3b",{scale:0,duration:.8,ease:"back.out(1.4)"},a+.2);inn("#s3e",a+.3);
+tl.from("#s3a",{y:120,autoAlpha:0,duration:.6,ease:"power4.out"},a+.4);
+tl.from("#s3c",{y:120,autoAlpha:0,duration:.6,ease:"power4.out"},a+1.2);
+tl.from("#s3c em",{scale:1.35,duration:.5,ease:"back.out(2)",transformOrigin:"0 50%"},a+1.45);inn("#s3d",a+2.2);
+/* S4 */
+a=T[3];inn("#s4h",a+.25);inn("#s4k",a+.5);inn("#s4m",a+.7,{y:0});
+tl.from("#s4w",{x:700,autoAlpha:0,duration:.8,ease:"power3.out"},a+.3);
+tl.to("#s4w",{scale:1.04,duration:5.6,ease:"none",transformOrigin:"50% 50%"},a+.8);
+inn("#s4n1",a+.9);cnt("#n1",184,a+.9,1.3);inn("#s4n2",a+2.3);cnt("#n2",3290,a+2.3,1.4);inn("#s4n3",a+3.8);cnt("#n3",13,a+3.8,1.0);
+/* S5 */
+a=T[4];inn("#s5h",a+.25);inn("#s5e",a+.5);inn("#s5o",a+3.6,{y:0});
+C.forEach(function(c,i){var t0=a+.8+i*.42;tl.from("#r"+i,{x:-140,autoAlpha:0,duration:.5,ease:"power3.out"},t0);tl.from("#f"+i,{scaleX:0,duration:.9,ease:"power2.out"},t0+.1);cnt("#v"+i,c[1],t0+.1,.9);});
+/* S6 */
+a=T[5];inn("#s6h",a+.25);inn("#s6a",a+.6);tl.from("#s6x",{scaleX:0,duration:.5,ease:"power2.inOut"},a+1.6);tl.to("#s6a",{opacity:.45,duration:.4},a+2.0);
+tl.from("#s6b",{y:80,autoAlpha:0,rotation:3,duration:.7,ease:"back.out(1.5)"},a+2.1);
+tl.to("#s6b mark",{backgroundSize:"100% 46%",duration:.5,stagger:.35,ease:"power2.out"},a+2.9);
+tl.from("#s6q",{x:-200,autoAlpha:0,duration:.6,ease:"power3.out"},a+4.0);tl.from("#s6ar",{scale:0,autoAlpha:0,duration:.4,ease:"back.out(2)"},a+4.6);inn("#s6t",a+4.7);
+/* S7: önce tam ekran video, sonra üç fotoğraf */
+a=T[6];tl.fromTo("#s7v",{scale:1.06},{scale:1,duration:7.5,ease:"none"},a);
+tl.from("#s7h",{y:120,autoAlpha:0,duration:.6,ease:"power4.out"},a+.5);inn("#s7t",a+1.2,{y:0});
+tl.to("#s7s",{backgroundColor:"rgba(20,28,26,.55)",duration:.5},a+3.6);
+tl.from("#g1",{y:-700,rotation:-20,duration:.7,ease:"back.out(1.2)"},a+3.7);
+tl.from("#g2",{y:-700,rotation:14,duration:.7,ease:"back.out(1.2)"},a+4.1);
+tl.from("#g3",{y:-700,rotation:22,duration:.7,ease:"back.out(1.2)"},a+4.5);
+/* S8 */
+a=T[7];tl.from("#s8b",{scale:0,duration:.8,ease:"back.out(1.3)"},a+.2);tl.from("#s8p",{y:900,duration:.8,ease:"power3.out"},a+.25);
+tl.to("#s8i",{y:-430,duration:3.2,ease:"power1.inOut"},a+.9);inn("#s8h",a+.5);
+inn("#s8c1",a+1.2,{x:-80,y:0});inn("#s8c2",a+1.5,{x:-80,y:0});inn("#s8c3",a+1.8,{x:-80,y:0});
+tl.from("#s8v",{x:700,rotation:14,duration:.8,ease:"power3.out"},a+.7);
+/* S9 saha */
+a=T[8];tl.from("#s9b",{scale:0,duration:.8,ease:"back.out(1.2)"},a+.2);inn("#s9h",a+.25);inn("#s9e",a+.5);
+["#k1","#k2","#k3","#k4"].forEach(function(id,i){tl.from(id,{y:-900,rotation:(i%2?16:-16),duration:.7,ease:"back.out(1.15)"},a+.7+i*.55);});
+tl.from("#s9s",{scale:0,autoAlpha:0,duration:.6,ease:"back.out(2)",transformOrigin:"0 100%"},a+3.3);inn("#s9t",a+3.8);
+/* S10 tablo */
+a=T[9];inn("#s10h",a+.25);inn("#s10e",a+.5);tl.from("#tk",{y:80,autoAlpha:0,duration:.6,ease:"power3.out"},a+.6);
+for(var k=0;k<5;k++)for(var j=0;j<DONE[k];j++)tl.to("#b"+k+"_"+j,{opacity:1,scale:1,startAt:{scale:.2},duration:.28,ease:"back.out(3)"},a+1.0+j*.28+k*.06);
+/* S11 */
+a=T[10];tl.from("#s11b",{scale:0,duration:.8,ease:"back.out(1.3)"},a+.2);inn("#s11e1",a+.3);inn("#s11a",a+.4);tl.from("#s11x",{scaleX:0,duration:.45,ease:"power2.inOut"},a+1.2);
+inn("#s11e2",a+1.6);tl.from("#s11c",{y:120,autoAlpha:0,duration:.6,ease:"power4.out"},a+1.7);cnt("#n4",5,a+1.8,.7);cnt("#n5",29.5,a+1.8,1.2,true);
+inn("#s11d",a+3.0);inn("#s11f",a+3.3,{y:0});
+window.__timelines=window.__timelines||{};window.__timelines["main"]=tl;
+})();</script></body></html>

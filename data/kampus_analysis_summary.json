@@ -1,0 +1,18 @@
+{
+  "campus": "Bahçeşehir Üniversitesi Beşiktaş Güney Yerleşkesi",
+  "center": {
+    "lat": 41.0418505,
+    "lon": 29.0096979
+  },
+  "radius_km_haversine": 1.5,
+  "input_dataset_id": "qQCtHOeNbW50JOzXq",
+  "input_run_id": "mpo3tjHqb24kgIqd8",
+  "raw_items": 237,
+  "eligible_unique_cafes": 184,
+  "review_rows": 3290,
+  "complete_20_review_places": 154,
+  "instagram_url_found": 53,
+  "website_found": 73,
+  "instagram_activity_verified": false,
+  "generated_at": "2026-10-12"
+}

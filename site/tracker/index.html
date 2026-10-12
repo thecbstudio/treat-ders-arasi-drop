@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pilot Pipeline Tracker | treat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../tracker.css">
+</head>
+<body class="tracker-page">
+<main class="tracker-shell">
+  <p><a href="../">← Ders Arası Drop</a></p>
+  <h1>Pilot pipeline</h1>
+  <p class="tracker-lede">The top 5 candidates Manus selected from 184 cafés and 3,290 Google reviews around BAU Beşiktaş South Campus. Only stages that have actually happened are ticked.</p>
+  <div class="tracker-actions">
+    <button id="save">Saved ✓</button>
+    <button id="reset">Reset</button>
+  </div>
+  <div class="tracker-table-wrap">
+    <table>
+      <thead><tr><th>Café</th><th>Found</th><th>Scored</th><th>Offer ready</th><th>Sent</th><th>Replied</th><th>Agreed</th><th>Drop live</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <p class="tracker-note">Ticks are stored in this browser only; they are not a public claim of results. Scores are a prioritisation derived from Google Maps data and review text.</p>
+  <section class="tracker-links">
+    <h2>Per-café pages</h2>
+    <div id="links"></div>
+  </section>
+</main>
+<script>
+const cafes = [
+  ['hygge-coffee-shop','Hygge Coffee Shop','96 · 0.71 km · 4.8 / 589 reviews'],
+  ['menta-nisantasi','Menta Nişantaşı','94 · 1.38 km · 4.5 / 105 reviews'],
+  ['siyah-cafe-kahvalti','Siyah Cafe Kahvaltı','93 · 0.61 km · 4.5 / 671 reviews'],
+  ['the-co-coffee-akaretler','THE CO. COFFEE AKARETLER','93 · 0.67 km · 4.6 / 395 reviews'],
+  ['glane-coffee','Glane Coffee','92 · 0.56 km · 4.7 / 172 reviews']
+];
+const KEY = 'treat-tracker-v1';
+let state = {};
+try { state = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
+const rows = document.getElementById('rows'), links = document.getElementById('links');
+function draw() {
+  rows.innerHTML = ''; links.innerHTML = '';
+  cafes.forEach(([slug, name, meta]) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td><a href="../?cafe=' + slug + '">' + name + '</a><small>' + meta + '</small></td>';
+    for (let i = 0; i < 7; i++) {
+      const id = slug + ':' + i, td = document.createElement('td'), cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = id in state ? state[id] : i < 3;
+      cb.onchange = () => { state[id] = cb.checked; try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+      td.appendChild(cb); tr.appendChild(td);
+    }
+    rows.appendChild(tr);
+    const a = document.createElement('a'); a.href = '../?cafe=' + slug; a.textContent = name; links.appendChild(a);
+  });
+}
+document.getElementById('reset').onclick = () => { state = {}; try { localStorage.removeItem(KEY); } catch (e) {} draw(); };
+draw();
+</script>
+</body>
+</html>
